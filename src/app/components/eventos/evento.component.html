@@ -1,0 +1,88 @@
+<div class="animated fadeIn card border-primary mb-3" style="width: 100%">
+
+    <div class="row">
+
+        <div class="col-md-7">
+
+            <form (ngSubmit)="guardarEvento()" #forma="ngForm">
+            <div class="card-body text-primary">
+
+                <h4 class="card-title">{{ titulo }}</h4>
+
+                <div class="form-group">
+                    <label for="nombre" class="col-form-label">Nombre</label>
+                    <div>
+                      <input 
+                      type="text" 
+                      class="form-control" 
+                      required
+                      name="nombre" 
+                      [(ngModel)]="evento.nombre"
+                      id="inputNombre">
+                    </div>
+                 </div>
+
+                 <div class="form-group">
+                    <label for="infAdicional" class="col-form-label">Información Adicional ( Fecha, etc)</label>
+                    <div>
+                      <input 
+                      type="text" 
+                      required
+                      class="form-control" 
+                      name="infAdicional" 
+                      [(ngModel)]="evento.infAdicional"
+                      id="inputinfAdicional">
+                    </div>
+                 </div>
+
+
+                 
+            <div class="row">
+                <div >
+                  <button [disabled]="!forma.valid" type="submit"
+                  class="btn btn-primary">{{ tituloBoton }}</button>
+                </div>
+                &nbsp;
+               <div >
+                   <button 
+                   [routerLink]="['/eventos']"
+                   class="btn btn-secondary">Cancelar</button>
+               </div>
+              </div>
+
+
+
+            </div>
+
+
+            </form>
+
+         
+        </div>
+
+    </div>
+
+    <div class="row" *ngIf="participantesEventos">
+        <div class="col-md-7">
+            <div class="card-body text-primary">
+                <h4>Participantes en el evento</h4>
+
+                <div class="alert alert-info">
+                    No hay asistentes registrados a este evento
+                    <i class="fa fa-spin fa-sync"></i>
+                </div>
+
+            </div>
+
+           
+
+
+
+    
+        </div>
+     
+
+    </div>
+
+
+</div>

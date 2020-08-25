@@ -24,9 +24,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/animate.css",
+              "src/styles.css",
+              "src/assets/fontawesome/css/all.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/fontawesome/js/all.min.js"
+            ]
           },
           "configurations": {
             "production": {
