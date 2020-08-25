@@ -35,12 +35,34 @@
                     </div>
                  </div>
 
+                 <div class="form-group">
+                    <label for="capacidad" class="col-form-label">Capacidad</label>
+                    <div>
+                      <input 
+                      type="number" 
+                      required
+                      class="form-control" 
+                      name="capacidad" 
+                      [(ngModel)]="evento.capacidad"
+                      id="inputCapacidad">
+                    </div>
+                 </div>
 
-                 
+                 <div class="form-group">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1"
+                        name="estado" 
+                        [(ngModel)]="evento.abierto">
+                        <label class="custom-control-label" for="customSwitch1">Evento activo</label>
+                    </div>
+                </div>
+                        
             <div class="row">
                 <div >
                   <button [disabled]="!forma.valid" type="submit"
-                  class="btn btn-primary btn-sm">{{ tituloBoton }}</button>
+                  class="btn btn-primary btn-sm">
+                  <i *ngIf="cargando" class="fa fa-spin fa-sync"></i>
+                  {{ tituloBoton }}</button>
                 </div>
                 &nbsp;
                <div >
@@ -62,15 +84,56 @@
 
     </div>
 
-    <div class="row" *ngIf="participantesEventos">
-        <div class="col-md-7">
+    <div class="row" *ngIf="cuadroParticipantesEventos">
+        <div class="col-md-12">
             <div class="card-body text-primary">
-                <h4>Participantes en el evento</h4>
+                <h4>Participantes en el evento -  {{participantesEventos.length }}</h4>
 
-                <div class="alert alert-info">
-                    No hay asistentes registrados a este evento
-                    <i class="fa fa-spin fa-sync"></i>
+                <div *ngIf="cargandoParticipantes" class="alert alert-warning text-center" role="alert">
+                    <i  class="fa fa-spin fa-sync"></i> Cargando...
                 </div>
+
+                <div *ngIf="participantesEventos.length < 1" class="alert alert-info">
+                    No hay asistentes registrados a este evento
+                    
+                </div>
+
+
+                <table class="table table-striped table-bordered mt-2">
+                    <thead>
+                        <tr>
+                            <th >Nombre</th>
+                            <th>Teléfono</th>
+                            <th>Número</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let asistente of participantesEventos; let i=index;">
+                            <td class="w150">
+                                {{asistente.nombre }}
+
+                            </td>
+                            <td class="w70">
+                                {{asistente.telefono }}
+                            </td>
+
+                            <td class="w40">
+                                {{asistente.numero }}
+
+                            </td>
+
+                            <td class="w70 align-middle">
+                                <button 
+                                (click)="eliminaAsistente( asistente )"
+                                class="btn btn-outline-danger btn-sm">
+                                    <i class="fa fa-trash"></i> Eliminar
+                                </button>
+                               
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
             </div>
 

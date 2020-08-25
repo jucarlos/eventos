@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class EventosComponent implements OnInit {
 
   eventos: Evento[] = [];
+  cargando = true;
 
   constructor(
     public modalService: ModalService,
@@ -26,8 +27,12 @@ export class EventosComponent implements OnInit {
   }
 
   cargarEventos(): void {
+    this.cargando = true;
     this.eventosService.getEventos()
-    .subscribe( eventos =>   this.eventos = eventos );
+    .subscribe( eventos =>  {
+        this.eventos = eventos;
+        this.cargando = false;
+    });
 
   }
 

@@ -9,7 +9,7 @@ import { InscripcionComponent } from './components/inscripcion/inscripcion.compo
 const routes: Routes = [
   { path: 'eventos', component: EventosComponent  },
   { path: 'evento/:id', component: EventoComponent, canActivate: [ LoginGuard ] },
-  { path: 'inscripcion', component: InscripcionComponent },
+  { path: 'inscripcion/:id', component: InscripcionComponent },
   { path: '**', pathMatch: 'full',  redirectTo: 'eventos'}
 ];
 

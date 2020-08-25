@@ -26,8 +26,16 @@ export class EventoService {
 
   guardarEvento( evento: Evento ): Observable<any> {
 
-    const URL = URL_SERVICIOS + '/eventos';
-    return this.http.post<Observable<any>>(URL, evento);
+    console.log( evento);
+
+    if ( evento._id ) {
+      const URL = URL_SERVICIOS + '/eventos/' + evento._id;
+      return this.http.put<Observable<any>>(URL, evento );
+
+    } else {
+      const URL = URL_SERVICIOS + '/eventos';
+      return this.http.post<Observable<any>>(URL, evento);
+    }
 
   }
 

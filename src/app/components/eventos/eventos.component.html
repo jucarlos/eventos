@@ -15,11 +15,22 @@
                 <div class="col-md-10">
                     <hr/>
                     <p class="card-text">Estos son los eventos que tiene la parroquia</p>
+                        <div *ngIf="cargando" class="alert alert-warning text-center" role="alert">
+                            <i class="fa fa-spin fa-sync"></i> Cargando...
+                        </div>
+
                     <button 
                     *ngIf="usuarioService.estaAutenticado()"
                     [routerLink]="['/evento','nuevo']"
                     class="btn btn-outline-primary btn-sm m-2">
                         Nuevo Evento
+                    </button>
+
+                    <button 
+                   
+                    [routerLink]="['/evento','nuevo']"
+                    class="btn btn-outline-primary btn-sm m-2">
+                        Buscar donde estoy inscrito
                     </button>
 
                     <button (click)="abrirModal()"
@@ -50,14 +61,16 @@
                             <tr *ngFor="let evento of eventos; let i=index;">
                                 <td class="w40 align-middle">{{ i + 1 }}</td>
                                 <td class="w150">
-                                    <strong>{{evento.nombre}}</strong>
+                                    <strong *ngIf="evento.abierto" class="text-dark">{{evento.nombre}} - Abierto</strong>
+                                    <strong *ngIf="!evento.abierto" class="text-danger">{{evento.nombre}} - Cerrado</strong>
                                     <br/>
                                     {{ evento.infAdicional }}
 
                                 </td>
                                 <td class="w70 align-middle">
                                     <button 
-                                    [routerLink]="['/evento', evento._id ]"
+                                    [disabled] = "!evento.abierto"
+                                    [routerLink]="['/inscripcion', evento._id ]"
                                     class="btn btn-outline-primary btn-sm">
                                         <i class="fa fa-edit"></i>Inscribirme
                                     </button>
