@@ -13,6 +13,7 @@ import { EventosComponent } from './components/eventos/eventos.component';
 import { EventoComponent } from './components/eventos/evento.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InscripcionComponent } from './components/inscripcion/inscripcion.compo
     EventosComponent,
     EventoComponent,
     ModalComponent,
-    InscripcionComponent
+    InscripcionComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,

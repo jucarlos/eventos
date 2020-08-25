@@ -30,7 +30,11 @@ export class InscripcionService {
     const URL = URL_SERVICIOS + '/asistentes/' + idAsistente;
     return this.http.delete<Observable<any>>(URL);
 
+  }
 
+  buscarInscripciones( telefono: string ): Observable<any> {
+    const URL = URL_SERVICIOS + '/asistentes/telefono/' + telefono;
+    return this.http.get<Observable<any>>(URL);
   }
 
 }

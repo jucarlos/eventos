@@ -15,10 +15,10 @@ export class LoginGuard implements CanActivate {
     console.log( this.usuarioService.estaAutenticado());
 
     if ( this.usuarioService.estaAutenticado() ) {
-      console.log('Pasando por LoginGuard AUTENTICADO');
+      // console.log('Pasando por LoginGuard AUTENTICADO');
       return true;
     } else {
-      console.log('Pasando por LoginGuard NO AUTENTICADO');
+      // console.log('Pasando por LoginGuard NO AUTENTICADO');
       Swal.fire('Autenticación', 'Tienes que estar autenticado para ver este recurso', 'info');
       return false;
     }
