@@ -49,4 +49,9 @@ export class EventoService {
 
   }
 
+  borrarEvento( id: string): Observable<any> {
+    const URL = URL_SERVICIOS + '/eventos/' + id;
+    return this.http.delete<Observable<any>>(URL);
+  }
+
 }
