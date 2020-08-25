@@ -1,1 +1,63 @@
+
 /* You can add global styles to this file, and also import other style files */
+
+.pointer {
+    cursor: pointer
+  }
+  
+  .w100 {
+    width: 100px;
+  }
+  
+  .w150 {
+    width: 150px;
+  }
+  
+  .w70 {
+    width: 70px;
+  }
+  
+  .w40 {
+    width: 40px;
+  }
+  
+  .img-50 {
+    width: 50px;
+  }
+  
+  .img-70 {
+    width: 70px;
+  }
+  
+  /* Animaciones */
+  .animated {
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+    
+    .fast {
+      -webkit-animation-duration: 0.3s;
+      animation-duration: 0.3s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+    
+      to {
+        opacity: 1;
+      }
+    }
+    
+    .fadeIn {
+      animation-name: fadeIn;
+    }
+    
+  html, body { height: 100%; }
+  body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  

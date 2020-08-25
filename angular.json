@@ -25,11 +25,13 @@
             ],
             "styles": [
               "src/assets/css/bootstrap.min.css",
-              "src/assets/css/animate.css",
               "src/styles.css",
               "src/assets/fontawesome/css/all.min.css"
             ],
             "scripts": [
+              "src/assets/js/jquery-3.4.1.slim.min.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/bootstrap.min.js",
               "src/assets/fontawesome/js/all.min.js"
             ]
           },

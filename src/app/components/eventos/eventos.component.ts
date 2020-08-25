@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EventoService } from '../../services/evento.service';
 import { Evento } from '../../models/evento';
+import { ModalService } from '../../services/modal.service';
+import { UsuarioService } from '../../services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-eventos',
@@ -11,8 +14,11 @@ export class EventosComponent implements OnInit {
   eventos: Evento[] = [];
 
   constructor(
-    private eventosService: EventoService
-  ) { 
+    public modalService: ModalService,
+    public usuarioService: UsuarioService,
+    private eventosService: EventoService,
+    private router: Router
+  ) {
     this.cargarEventos();
   }
 
@@ -23,6 +29,15 @@ export class EventosComponent implements OnInit {
     this.eventosService.getEventos()
     .subscribe( eventos =>   this.eventos = eventos );
 
+  }
+
+  abrirModal(): void {
+    this.modalService.abrirModal();
+  }
+
+  salir(): void {
+    this.usuarioService.logout();
+    this.router.navigate(['/home']);
   }
 
 
