@@ -27,7 +27,7 @@ export class UsuarioService {
       console.log('SI', this.usuario.nombre);
     } else {
       this.usuario = new Usuario('', '', '');
-      console.log('NO');
+      // console.log('NO');
     }
 
   }

@@ -21,12 +21,12 @@ export class ModalComponent implements OnInit {
 
   constructor(private modalService: ModalService,
               private usuarioService: UsuarioService) {
-                console.log('Entramos por constructor');
+               // console.log('Entramos por constructor');
                }
 
   ngOnInit(): void {
 
-    console.log('Entramos por init');
+    // console.log('Entramos por init');
     this.usuario.email = localStorage.getItem('email')  || '';
     if ( this.usuario.email.length > 1 ) {
       this.recuerdame = true;
@@ -35,7 +35,7 @@ export class ModalComponent implements OnInit {
 
   entrar(): void {
 
-    console.log('Entramos entrar');
+   // console.log('Entramos entrar');
 
     this.usuarioService.login( this.usuario, this.recuerdame)
     .pipe(
