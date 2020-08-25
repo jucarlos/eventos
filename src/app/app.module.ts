@@ -12,7 +12,6 @@ import { FootComponent } from './shared/foot/foot.component';
 import { EventosComponent } from './components/eventos/eventos.component';
 import { EventoComponent } from './components/eventos/evento.component';
 import { ModalComponent } from './shared/modal/modal.component';
-import { IncripcionComponent } from './components/incripcion/incripcion.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { InscripcionComponent } from './components/inscripcion/inscripcion.compo
     EventosComponent,
     EventoComponent,
     ModalComponent,
-    IncripcionComponent,
     InscripcionComponent
   ],
   imports: [
