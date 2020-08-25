@@ -73,12 +73,16 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let inscripcion of inscripciones; let i=index;">
-                        <td class="w150">
+                        <td class="w40">
                             {{inscripcion.nombre }}
 
                         </td>
                         <td class="w70">
-                            {{inscripcion.nombre }}
+
+                          <strong *ngIf="inscripcion.evento.abierto" class="text-dark">{{inscripcion.evento.nombre}} - Abierto</strong>
+                          <strong *ngIf="!inscripcion.evento.abierto" class="text-danger">{{inscripcion.evento.nombre}} - Cerrado</strong>
+                          <br/>
+                            {{ inscripcion.evento.infAdicional}}
                         </td>
                     </tr>
                 </tbody>

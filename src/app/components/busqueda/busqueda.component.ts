@@ -43,6 +43,7 @@ export class BusquedaComponent implements OnInit {
     this.inscripcionService.buscarInscripciones(lon)
     .subscribe( (resp: any) => {
       this.inscripciones = resp.asistentes;
+      console.log( '888888', this.inscripciones);
       this.cargando = false;
     }, ( err ) => {
       this.cargando = false;
