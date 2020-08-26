@@ -28,6 +28,11 @@ export class EventosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  incribir(idEvento: string ): void {
+    console.log('Navega');
+    this.router.navigate(['/inscripcion', idEvento]);
+  }
+
   cargarEventos(): void {
     this.cargando = true;
     this.eventosService.getEventos()

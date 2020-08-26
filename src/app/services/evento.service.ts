@@ -4,6 +4,7 @@ import { URL_SERVICIOS } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Evento } from '../models/evento';
+import { SubirArchivoService } from './subir-archivo.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ import { Evento } from '../models/evento';
 export class EventoService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private subirArchivoService: SubirArchivoService
   ) { }
 
   getEventos(): Observable<Evento[]> {
@@ -53,5 +55,11 @@ export class EventoService {
     const URL = URL_SERVICIOS + '/eventos/' + id;
     return this.http.delete<Observable<any>>(URL);
   }
+
+  cambiarImagen( archivo: File, id: string ): any {
+
+    return this.subirArchivoService.subirArchivo( archivo , 'eventos', id );
+  }
+
 
 }

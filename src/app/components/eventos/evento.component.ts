@@ -25,6 +25,10 @@ export class EventoComponent implements OnInit {
 
   idEvento = '';
 
+  imagenSubir: File;
+  imagenTemp: any;
+
+
   constructor(private eventoService: EventoService,
               private router: Router,
               private inscripcionService: InscripcionService,
@@ -42,7 +46,7 @@ export class EventoComponent implements OnInit {
       if ( resp.ok ) {
         Swal.fire('Guardado', `${resp.evento.nombre}, ha sido guardado correctamente`, 'success');
         this.cargando = false;
-        this.router.navigate(['/eventos']);
+        this.volver();
        }
     });
   }
@@ -78,7 +82,7 @@ export class EventoComponent implements OnInit {
     }, error => {
       Swal.fire('Error', 'Error en la carga de participantes', 'error');
       this.cargandoParticipantes = false;
-      this.router.navigate(['/eventos']);
+      this.volver();
     });
 
 
@@ -117,6 +121,50 @@ export class EventoComponent implements OnInit {
     });
 
   }
+
+
+
+  seleccionImagen( archivo: File  ): void {
+
+    if ( !archivo ) {
+      this.imagenSubir = null;
+      return;
+    }
+
+    if ( archivo.type.indexOf ( 'image') < 0 ){
+      Swal.fire('Sólo imágenes', 'El archivo no es una imágen válida', 'error');
+      this.imagenSubir = null;
+      return;
+    }
+
+    this.imagenSubir = archivo;
+
+    let reader = new FileReader();
+    let urlImagenTemp = reader.readAsDataURL( archivo );
+
+    reader.onloadend = () => this.imagenTemp = reader.result;
+
+  }
+  cambiarImagen(): void {
+
+    this.eventoService.cambiarImagen( this.imagenSubir, this.evento._id )
+    .then ( (resp: any ) => {
+      if ( resp.ok ) {
+        Swal.fire('Imagen actualizada', resp.mensaje, 'success');
+        this.volver();
+      }
+    }).catch ( ( error ) => {
+      Swal.fire('Error', 'Ha habido un error al actualizar la imagen', 'error');
+    });
+
+  }
+
+
+  volver(): void {
+    this.router.navigate(['/eventos']);
+  }
+
+
 
 
 }

@@ -14,6 +14,7 @@ import { EventoComponent } from './components/eventos/evento.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { ImagenPipe } from './pipes/imagen.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
     EventoComponent,
     ModalComponent,
     InscripcionComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    ImagenPipe
   ],
   imports: [
     BrowserModule,

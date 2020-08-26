@@ -82,8 +82,37 @@
 
          
         </div>
+        
+    <div class="col-md-5">
+  
+        <div class="card-body" align="center">
+            <h4 class="card-title">Imagen del evento</h4>
+            <h6 class="card-subtitle"></h6>
+  
+           
+           
+          <img *ngIf="!imagenTemp" [src]="evento.clouds | imagen:'eventos'" class="w150">
+          <img *ngIf="imagenTemp" [src]="imagenTemp" class="w150">
+
+          <input type="file" (change)="seleccionImagen( $event.target.files[0] )">
+          
+
+          <br>
+          <br>
+
+          <button 
+          (click)="cambiarImagen()" [disabled]="!imagenSubir"
+          type="button" class="btn btn-block btn-success waves-effect waves-light m-r-10">
+                  <i class="fa fa-save"></i> Actualizar Foto</button>
+  
+        </div>
+    
+    </div>
+
 
     </div>
+
+
 
     <div class="row" *ngIf="cuadroParticipantesEventos">
         <div class="col-md-12">
