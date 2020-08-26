@@ -31,11 +31,12 @@ export class BusquedaComponent implements OnInit {
     this.cuadroInscripciones = true;
     this.cargando = true;
 
-    console.log('Bucando');
+    // console.log('Bucando');
 
     const lon = this.telefono.toString();
 
     if ( lon.length !== 9 ) {
+        this.cargando = false;
         Swal.fire('Teléfono', 'El número de teléfono tiene que tener 9 dígitos', 'info');
         return;
     }
@@ -43,7 +44,7 @@ export class BusquedaComponent implements OnInit {
     this.inscripcionService.buscarInscripciones(lon)
     .subscribe( (resp: any) => {
       this.inscripciones = resp.asistentes;
-      console.log( '888888', this.inscripciones);
+      // console.log( '888888', this.inscripciones);
       this.cargando = false;
     }, ( err ) => {
       this.cargando = false;
