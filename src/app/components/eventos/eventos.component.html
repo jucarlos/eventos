@@ -71,7 +71,8 @@
                                     <strong *ngIf="!evento.abierto" class="text-danger">{{evento.nombre}} - Cerrado</strong>
                                     <br/>
                                     {{ evento.infAdicional }}
-
+                                    <br/>
+                                    <small>Capacidad: {{ evento.capacidad }}</small>
                                 </td>
                                 <td class="w70 align-middle">
                                     <button 
