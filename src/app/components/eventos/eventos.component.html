@@ -63,7 +63,7 @@
                             <tr *ngFor="let evento of eventos; let i=index;">
                                 <td class="w50">
                                     <img 
-                                    (click)="incribir( evento._id)" 
+                                    (click)="incribir( evento )" 
                                     class="img-70 img-circle pointer" [src]="evento.clouds | imagen:'eventos' " >
                                   </td>
                                 <td class="w200">
