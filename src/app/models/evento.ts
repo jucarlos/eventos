@@ -1,3 +1,4 @@
+import { Asistente } from './asistente';
 
 
 export class Evento {
@@ -6,6 +7,7 @@ export class Evento {
         public infAdicional: string,
         public abierto?: boolean,
         public capacidad?: number,
+        public asistentes?: Asistente[],
         public _id?: string,
         public cloud?: string,
         public clouds?: string,

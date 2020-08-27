@@ -6,6 +6,8 @@ import { UsuarioService } from '../../services/usuario.service';
 import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
+import { of, Subscription } from 'rxjs';
+import { InscripcionService } from '../../services/inscripcion.service';
 
 @Component({
   selector: 'app-eventos',
@@ -14,12 +16,18 @@ import Swal from 'sweetalert2';
 export class EventosComponent implements OnInit {
 
   eventos: Evento[] = [];
+
   cargando = true;
+
+  
+ 
+
 
   constructor(
     public modalService: ModalService,
     public usuarioService: UsuarioService,
     private eventosService: EventoService,
+    private inscripcionService: InscripcionService,
     private router: Router
   ) {
     this.cargarEventos();
@@ -92,5 +100,5 @@ export class EventosComponent implements OnInit {
 
   }
 
-
 }
+

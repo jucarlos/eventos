@@ -18,7 +18,7 @@ export class EventoService {
 
   getEventos(): Observable<Evento[]> {
 
-    const URL = URL_SERVICIOS + '/eventos';
+    const URL = URL_SERVICIOS + '/eventos/conasistentes';
     return this.http.get(URL).pipe(
       map( (resp: any) => {
         return resp.eventos;
