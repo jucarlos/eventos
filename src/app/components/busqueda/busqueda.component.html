@@ -58,7 +58,7 @@
                 <i  class="fa fa-spin fa-sync"></i> Cargando...
             </div>
 
-            <div *ngIf="inscripciones.length < 1" class="alert alert-info">
+            <div *ngIf="inscripciones.length < 1 && !cargando" class="alert alert-info">
                 No hemos encrontrado inscripciones con el teléfono {{ telefono }}
             
             </div>
