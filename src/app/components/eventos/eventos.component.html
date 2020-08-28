@@ -43,7 +43,7 @@
                      {{ usuarioService.usuario.nombre }} - Salir</button>
 
 
-                     <div *ngIf="eventos.length < 1" class="alert alert-info">
+                     <div *ngIf="eventos.length < 1 && !cargando" class="alert alert-info">
                         No hay eventos programados
                     </div>
 

@@ -19,10 +19,6 @@ export class EventosComponent implements OnInit {
 
   cargando = true;
 
-  
- 
-
-
   constructor(
     public modalService: ModalService,
     public usuarioService: UsuarioService,
